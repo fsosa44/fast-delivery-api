@@ -94,7 +94,8 @@ export const UsersController = {
                 name: userValues.name,
                 role: userValues.role,
                 last_name: userValues.last_name,
-                email: userValues.email
+                email: userValues.email,
+                status: userValues.status,
               }
               const token = generateToken(payload)
               res.cookie('token', token, {
