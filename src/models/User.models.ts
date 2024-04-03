@@ -4,11 +4,11 @@ import bcrypt from 'bcrypt'
 import { UserAttributes } from '../types'
 
 class User extends Model<UserAttributes> {
-  async hash (password: string, salt: string): Promise<string> {
+  async hash(password: string, salt: string): Promise<string> {
     return await bcrypt.hash(password, salt)
   }
 
-  async validatePassword (password: string): Promise<boolean> {
+  async validatePassword(password: string): Promise<boolean> {
     const salt: string = await this.get('salt') as string
     const originalPassword = await this.get('password') as string
     const hash = await this.hash(password, salt)
@@ -51,7 +51,7 @@ User.init(
       allowNull: true
     },
     token: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true
     },
     last_activity: {

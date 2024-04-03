@@ -71,6 +71,25 @@ export const PackagesControllers = {
         res.status(500).send('There was an error finding the packages')
       })
   },
+  getPackagesByDate: (req: Request, res: Response) => {
+    const { search_date } = req.params
+    Package.findAll({
+      where: {
+        delivery_date: search_date
+      }
+    })
+      .then((packageList) => {
+        if (packageList.length > 0) {
+          res.status(200).send(packageList)
+        } else {
+          res.status(404).send('No packages on that date')
+        }
+      })
+      .catch((err) => {
+        console.error(err)
+        res.status(500).send('There was an error finding the packages')
+      })
+  },
   createPackage: (req: Request, res: Response) => {
     const { address, client_name, weight, delivery_date } = req.body
     Package.create({

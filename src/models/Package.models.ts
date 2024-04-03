@@ -21,7 +21,7 @@ Package.init(
       allowNull: false
     },
     delivery_date: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull: false
     },
     status: {
