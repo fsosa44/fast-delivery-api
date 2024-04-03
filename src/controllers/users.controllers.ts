@@ -7,7 +7,7 @@ import { format } from 'date-fns'
 export const UsersController = {
 
 
-  
+
   register: (req: Request, res: Response): void => {
     const { email, password, name, last_name } = req.body
     const actualDate = format(new Date(), 'dd/MM/yy')
@@ -95,7 +95,7 @@ export const UsersController = {
                 role: userValues.role,
                 last_name: userValues.last_name,
                 email: userValues.email,
-                status: userValues.status,
+                status: userValues.status
               }
               const token = generateToken(payload)
               res.cookie('token', token, {
