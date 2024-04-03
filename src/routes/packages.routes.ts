@@ -31,6 +31,7 @@ router.get('/driver/:id', validateAuth, PackagesControllers.getPackagesByDriver)
 router.get('/date/:search_date', validateAuth, PackagesControllers.getPackagesByDate)
 router.put('/start-delivery', validateAuth, PackagesControllers.startDelivery)
 router.put('/status/:id', validateAuth, PackagesControllers.changeStatus)
+router.delete('/single/:id', validateAdmin, PackagesControllers.deletePackage )
 
 
 
