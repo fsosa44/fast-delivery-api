@@ -70,7 +70,7 @@ export const driverStatusChanger = async (driverId: number, packageNewStatus: st
 }
 
 export const sendVerifyEmail = async (token: string, userEmail: string): Promise<SMTPTransport.SentMessageInfo> => {
-  const confirmURL = `http://localhost:3000/confirm-email/${token}`
+  const confirmURL = `https://fastdelivery.vercel.app/confirm-email/${token}`
   return await transporter.sendMail({
     from: `"Confirmación de correo electrónico" <${appMail}>`,
     to: userEmail,
