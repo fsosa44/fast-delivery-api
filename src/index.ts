@@ -11,6 +11,7 @@ import { createAdminUser } from "./utils/index.utils";
 const path = require("path");
 const swaggerUI = require("swagger-ui-express");
 const swaggerJsDoc = require("swagger-jsdoc");
+const port = process.env.PORT || 4000;
 const swaggerSpec = {
   definition: {
     openapi: "3.0.0",
@@ -20,7 +21,7 @@ const swaggerSpec = {
     },
     servers: [
       {
-        url: "http://localhost:3002",
+        url: `http://localhost:${port}`,
       },
     ],
   },
@@ -62,7 +63,7 @@ if (require.main === module) {
       return await createAdminUser();
     })
     .then(() => {
-      app.listen(3002, () => console.log("Servidor en el puerto 3001"));
+      app.listen(port, () => console.log(`Servidor en el puerto ${port}`));
     })
     .catch(console.error);
 }
