@@ -58,7 +58,7 @@ app.use(
 app.use("/api", routes);
 
 if (require.main === module) {
-  db.sync({ force: true })
+  db.sync({ force: false })
     .then(async () => {
       return await createAdminUser();
     })
