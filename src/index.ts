@@ -41,7 +41,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "http://localhost:3001",
+    origin: "https://fastdelivery-clone.vercel.app/",
     credentials: true,
   })
 );
